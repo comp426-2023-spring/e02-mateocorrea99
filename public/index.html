@@ -1,12 +1,53 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>Rock</title>
-        <!-- Link to your script file(s) and CSS in here somewhere -->
+        <meta charset="UTF-8">
+        <title>COMP426 Final: Mateo Correa Risso Final</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <h1>COMP426 Final: Rock Paper Scissors and/or Lizard Spock</h1>
+        <h2>Mateo Correa Risso</h2>
+        <div>
+            <p>In case you don't know how to play, the rules are here:</p>
 
-    <!-- Your interface markup goes here -->
-    <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
+            <form id="rules-form">
+                <button type="button" id="rules-button" onclick="viewrules()">View Rules</button>
+                <div id="rules" hidden></div>
+                <button type="button" id="hide-rules-button" onclick="hiderules()" hidden>Hide Rules</button>
+                <!-- form need a submit button for validation, so hide it -->
+                <button type="submit" hidden>Submit</button>
+            </form>
 
+            <p> Or here for <a href="https://thegeniusofplay.org/genius/play-ideas-tips/play-ideas/rock-paper-scissors.aspx#.ZFgvMOzMK3I">Rock Paper Scissors</a>
+                and here for <a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock">Rock Paper Scissors Lizard Spock</a>! I don't know why you would need them after my glorious button... but still, there's the links. And long live Big Bang Theory.</p>
+
+            <label for="gameSelection">
+                Rock Paper Scissors, or Rock Paper Scissors Lizard Spock?
+            </label>
+            <select id="gameSelection">
+                <option value="rps" selected>Rock Paper Scissors</option>
+                <option value="rpsls">Rock Paper Scissors Lizard Spock</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <input type="radio" id="random" name="gameMode" value="random" checked>
+                <label for="random">Random</label>
+            <input type="radio" id="opponent" name="gameMode" value="opponent">
+                <label for="opponent">Play against an Opponent</label>
+        </div>
+        <div id="moveSelection" style="display:none;">
+            <br>
+            <label for="move">Choose your move:</label>
+            <select id="move">
+            </select>
+        </div>
+        <br>
+        <button id="playButton" type="button">Play!</button>
+        <button id="resetButton" type="button">Start Over</button>
+        <br>
+        <div id="result" class="resultText"></div>
+        <script src="scripts.js"></script>
     </body>
 </html>

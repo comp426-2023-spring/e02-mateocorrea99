@@ -5,9 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "nodemon -e js,css,html server.js --port=5000 --debug",
+    "test": "nodemon -e js,css,html server.js --port=5555 --debug",
     "start": "node server.js",
-    "demo": "nodemon -e js,css,html server.js --port=5000 --stat=demo"
+    "demo": "nodemon -e js,css,html server.js --port=5555 --stat=demo"
   },
   "keywords": [
     "node",
@@ -20,7 +20,19 @@
     "express",
     "server"
   ],
-  "author": "@jdmar3",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2023-spring/e02-mateocorrea99.git"
+  },
+  "bugs": {
+    "url": "https://github.com/comp426-2023-spring/e02-mateocorrea99/issues"
+  },
+  "homepage": "https://github.com/comp426-2023-spring/e02-mateocorrea99#readme",
+  "author": "@mateocorrea99",
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "express": "^4.18.2",

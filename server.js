@@ -20,10 +20,8 @@ if (args.debug) {
 if (args.h || args.help) {
     console.log(`
 usage: node server.js --port=5000
-
 This package serves the static HTML, CSS, and JS files in a /public directory.
 It also creates logs in a common log format (CLF) so that you can better.
-
   --stat,  -s    Specify the directory for static files to be served
                     Default: ./public/
   --port, -p    Specify the port for the HTTP server to listen on
@@ -102,3 +100,49 @@ process.on('SIGINT', () => {
         }    
     })
 })
+
+
+import {RPS, RPSLS} from './lib/rpsls.js';
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+app.get('/app/', (req, res) => {
+    res.status(200).send('200 OK');
+})
+
+app.get('/app/rps/', (req, res) => {
+    res.status(200).json(RPS());
+})
+
+app.get('/app/rpsls/', (req, res) => {
+    res.status(200).json(RPSLS());
+})
+
+app.post('/app/rps/play/', (req, res) => {
+    res.status(200).json(RPS(req.body.shot));
+})
+
+app.get('/app/rps/play/:shot', (req, res) => {
+    res.status(200).json(RPS(req.params.shot));
+})
+
+app.post('/app/rpsls/play/', (req, res) => {
+    res.status(200).json(RPSLS(req.body.shot));
+})
+
+app.get('/app/rpsls/play/:shot', (req, res) => {
+    res.status(200).json(RPSLS(req.params.shot));
+})
+
+app.get('/app/rps/play/', (req, res) => {
+    res.status(200).json(RPS(req.query.shot));
+})
+
+app.get('/app/rpsls/play/', (req, res) => {
+    res.status(200).json(RPSLS(req.query.shot));
+})
+
+app.use((req, res) => {
+    res.status(404).send('404 NOT FOUND');
+  }); 
